@@ -1,0 +1,8 @@
+alert tcp any any -> any 80,443 (msg:"ALERT TCP PROD"; flow:to_server, established; sid:2000030; rev:1;)
+pass tcp any any -> any 80,443 (msg:"PASS TCP PROD"; flow:to_server, established; sid:2000031; rev:1;)
+alert tcp any any -> any any (msg:"TEST ALERT ALL TCP TRAFFIC"; sid:9999999; rev:1;)
+alert ip any any -> any any (msg:"TEST ALERT ANY TRAFFIC"; sid:1; rev:1;)
+pass tcp 13.208.32.165 any -> any any (msg:"ALLOW NAT Gateway TCP"; sid:4000001; rev:1;)
+pass udp 13.208.32.165 any -> any any (msg:"ALLOW NAT Gateway UDP"; sid:4000002; rev:1;)
+pass udp 13.208.32.165 any -> any any (msg:"ALLOW NAT Gateway UDP"; sid:4000003; rev:1;)
+pass udp 13.208.32.165 any -> any any (msg:"ALLOW NAT Gateway UDP"; sid:4000003; rev:1;)
