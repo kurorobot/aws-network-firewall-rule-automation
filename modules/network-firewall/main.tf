@@ -31,11 +31,8 @@ resource "aws_subnet" "firewall_subnet_c" {
 
 # ルール数に基づいて容量を計算
 locals {
-  prod_rules_content = file("${path.root}/suricata-prod.rules")
-  nonprod_rules_content = file("${path.root}/suricata-nonprod.rules")
-  
-  prod_rules_count = length(regexall("\n", local.prod_rules_content)) + 1
-  nonprod_rules_count = length(regexall("\n", local.nonprod_rules_content)) + 1
+  prod_rules_count = length(regexall("\n", var.prod_rules_content)) + 1
+  nonprod_rules_count = length(regexall("\n", var.nonprod_rules_content)) + 1
   
   # 最小容量は100、実際のルール数の2倍を確保
   prod_capacity = max(100, local.prod_rules_count * 2)
@@ -49,7 +46,7 @@ resource "aws_networkfirewall_rule_group" "prod" {
   type     = "STATEFUL"
   rule_group {
     rules_source {
-      rules_string = local.prod_rules_content
+      rules_string = var.prod_rules_content
     }
   }
 
@@ -66,7 +63,7 @@ resource "aws_networkfirewall_rule_group" "nonprod" {
   type     = "STATEFUL"
   rule_group {
     rules_source {
-      rules_string = local.nonprod_rules_content
+      rules_string = var.nonprod_rules_content
     }
   }
 
