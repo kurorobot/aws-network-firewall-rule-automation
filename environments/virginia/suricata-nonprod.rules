@@ -1,0 +1,3 @@
+# デフォルトの非本番環境ルール
+alert tcp any any -> any 80,443 (msg:"ALERT TCP NONPROD"; flow:to_server, established; sid:3000030; rev:1;)
+pass tcp any any -> any 80,443 (msg:"PASS TCP NONPROD"; flow:to_server, established; sid:3000031; rev:1;)

@@ -1,0 +1,5 @@
+vpc_cidr           = "10.1.0.0/16"
+subnet_cidr_a      = "10.1.1.0/24"
+subnet_cidr_c      = "10.1.2.0/24"
+firewall_name      = "singapore-network-firewall"
+firewall_policy_name = "singapore-network-firewall-policy" 

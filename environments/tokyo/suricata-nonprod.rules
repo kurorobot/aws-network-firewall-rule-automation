@@ -1,0 +1,2 @@
+alert tcp any any -> any 80,443 (msg:"ALERT TCP NONPROD"; flow:to_server, established; sid:2000030; rev:1;)
+pass tcp any any -> any 80,443 (msg:"PASS TCP NONPROD"; flow:to_server, established; sid:2000031; rev:1;)

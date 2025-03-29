@@ -2,4 +2,5 @@ alert tcp any any -> any 80,443 (msg:"ALERT TCP PROD"; flow:to_server, establish
 pass tcp any any -> any 80,443 (msg:"PASS TCP PROD"; flow:to_server, established; sid:2000031; rev:1;)
 alert ip any any -> any any (msg:"TEST ALERT ANY TRAFFIC"; sid:1; rev:1;)
 alert ip any any -> any 1521 (msg:"TEST ALERT ANY TRAFFIC"; sid:2; rev:1;)
-alert ip any any -> any 1521 (msg:"TEST ALERT ANY TRAFFIC"; sid:3; rev:1;)
+
+alert ip any any -> any 1521 (msg:"TEST ALERT ANY TRAFFIC"; sid:4; rev:1;)

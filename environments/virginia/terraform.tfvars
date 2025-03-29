@@ -1,0 +1,5 @@
+vpc_cidr           = "10.2.0.0/16"
+subnet_cidr_a      = "10.2.1.0/24"
+subnet_cidr_c      = "10.2.2.0/24"
+firewall_name      = "virginia-network-firewall"
+firewall_policy_name = "virginia-network-firewall-policy" 
